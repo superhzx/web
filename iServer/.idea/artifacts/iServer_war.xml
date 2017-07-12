@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="iServer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="iServer-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="iServer:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-lazy-init="true">
+	<context:component-scan base-package="cn.rails.iServer"></context:component-scan>
+	<!-- 加载配置文件 -->
+	<context:property-placeholder
+		location="classpath:jdbc.properties" />
+	<!-- 定义数据源 -->
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!--maxActive: 最大连接数量 -->
+		<property name="maxActive" value="${maxActive}" />
+		<!--initialSize: 初始化连接 -->
+		<property name="initialSize" value="${initialSize}" />
+	
+	</bean> 
+	 
+	<!-- 创建SessionFactory，这是spring整合hibernate的核心 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="packagesToScan" value="cn.rails.iServer.core.entity" />
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+
+    <!-- 配置事务 -->
+    <bean id="trManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <!-- 上传附件 -->
+    <bean id='multipartResolver' class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="maxInMemorySize" value="1" />
+    </bean>
+    
+    <!-- 使用注解，在Service层的类上添加@Transcational() -->
+    <tx:annotation-driven transaction-manager="trManager"
+        proxy-target-class="true" />
+    
+</beans>

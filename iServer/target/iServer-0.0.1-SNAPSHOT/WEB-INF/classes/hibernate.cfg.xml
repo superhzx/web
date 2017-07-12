@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!-- author zhouhui , create date 2015-11-28 17:13:16 -->
+<hibernate-configuration>
+    <session-factory name="sessionFactory">
+  		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>  
+  		<property name="hibernate.show_sql">true</property> 
+  		<!-- <property name="hibernate.format_sql">true</property>  -->
+  		<!-- 自动生成数据库表 -->
+  		<!-- <property name="hibernate.hbm2ddl.auto">create</property>    --> 
+    </session-factory>
+</hibernate-configuration>
+
