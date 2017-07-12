@@ -1,0 +1,85 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "首页",
+      "subMenu": []
+    },
+    {
+      "id": 2,
+      "name": "业务申请",
+      "subMenu":[
+        {
+          "id": 21,
+          "name": "OA业务申请",
+          "subMenu": []
+        },{
+          "id": 22,
+          "name": "保函用户申请",
+          "subMenu": []
+        },{
+          "id": 23,
+          "name": "邮箱账号申请",
+          "subMenu": []
+        },{
+          "id": 24,
+          "name": "ERP账号申请",
+          "subMenu": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "流程管理",
+      "subMenu": [
+        {
+          "id": 31,
+          "name": "业务角色管理",
+          "subMenu": []
+        },
+        {
+          "id": 32,
+          "name": "组织角色管理",
+          "subMenu": []
+        },
+        {
+          "id": 33,
+          "name": "业务系统管理",
+          "subMenu": []
+        },
+        {
+          "id": 34,
+          "name": "业务流程配置",
+          "subMenu": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "系统管理",
+      "subMenu": [
+        {
+          "id": 41,
+          "name": "用户信息",
+          "subMenu": []
+        },{
+          "id": 42,
+          "name": "部门信息",
+          "subMenu": []
+        },{
+          "id": 43,
+          "name": "岗位信息",
+          "subMenu": []
+        },{
+          "id": 44,
+          "name": "角色信息",
+          "subMenu": []
+        },{
+          "id": 45,
+          "name": "权限信息",
+          "subMenu": []
+        }
+      ]
+    }
+  ]
+}
